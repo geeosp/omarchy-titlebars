@@ -14,8 +14,8 @@ var STYLES = {
 }
 
 var ORDERS = {
-  standard: ["minimize", "maximize", "float", "close"],
-  mac: ["close", "minimize", "maximize", "float"]
+  standard: ["minimize", "float", "maximize", "close"],
+  mac: ["close", "minimize", "float", "maximize"]
 }
 
 var TRANSPARENT = "#00000000"

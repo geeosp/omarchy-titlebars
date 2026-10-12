@@ -389,7 +389,7 @@ hl.config({
   },
 })
 
-local order = settings.order == "mac" and { "close", "minimize", "maximize", "float" } or { "minimize", "maximize", "float", "close" }
+local order = settings.order == "mac" and { "close", "minimize", "float", "maximize" } or { "minimize", "float", "maximize", "close" }
 local shown = { minimize = settings.showMinimize, maximize = settings.showMaximize, float = settings.showFloat, close = settings.showClose }
 local size = math.floor(settings.buttonSize * (style.scale or 1) + 0.5)
 

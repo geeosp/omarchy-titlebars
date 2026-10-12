@@ -103,9 +103,9 @@ end)
 
 test("float button floats the window outside the grid", function()
   local seen = run('{ "showFloat": true }')
-  eq(icons(seen), "× ❐ + −", "float button in edge-first order")
-  eq(seen.buttons[2].bg_color, "rgb(7aa2f7)", "float uses the accent color")
-  assert(seen.buttons[2].action:find('hl.dsp.window.float({ action = "toggle" })', 1, true), "toggles floating")
+  eq(icons(seen), "× + ❐ −", "float button in edge-first order")
+  eq(seen.buttons[3].bg_color, "rgb(7aa2f7)", "float uses the accent color")
+  assert(seen.buttons[3].action:find('hl.dsp.window.float({ action = "toggle" })', 1, true), "toggles floating")
 end)
 
 test("glyph-only styles drop the circles and enlarge the glyphs", function()
