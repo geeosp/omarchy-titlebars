@@ -63,24 +63,24 @@ class Settings(Base):
         self.assertEqual(self.run_cli("set", "buttons", "left").returncode, 0)
         self.assertEqual(self.run_cli("set", "colors.close", "#ff0000").returncode, 0)
         self.assertEqual(self.run_cli("set", "buttons", "right").returncode, 0)
-        self.assertEqual(json.loads(self.read(".config/omarchy/marcho78.titlebars.json")), {"colors": {"close": "#ff0000"}})
+        self.assertEqual(json.loads(self.read(".config/omarchy/geeosp.titlebars.json")), {"colors": {"close": "#ff0000"}})
 
     def test_invalid_values_are_refused(self):
         for key, value in [("buttonSize", "30"), ("title", "maybe"), ("style", "evil"), ("colors.close", "x;rm"),
                            ("colors.close", "tomato"), ("noBarApps", "a`b"), ("nope", "1"), ("colors", "red")]:
             with self.subTest(key=key, value=value):
                 self.assertNotEqual(self.run_cli("set", key, value).returncode, 0)
-        self.assertFalse(os.path.exists(self.path(".config/omarchy/marcho78.titlebars.json")))
+        self.assertFalse(os.path.exists(self.path(".config/omarchy/geeosp.titlebars.json")))
 
     def test_save_validates_everything(self):
         self.assertEqual(self.run_cli("save", '{"style":"nerd"}').returncode, 0)
         self.assertNotEqual(self.run_cli("save", '{"style":"nerd","titleFont":"a\\u0000b"}').returncode, 0)
         self.assertNotEqual(self.run_cli("save", "[1]").returncode, 0)
         self.assertNotEqual(self.run_cli("save", "x" * 70000).returncode, 0)
-        self.assertEqual(json.loads(self.read(".config/omarchy/marcho78.titlebars.json")), {"style": "nerd"})
+        self.assertEqual(json.loads(self.read(".config/omarchy/geeosp.titlebars.json")), {"style": "nerd"})
 
     def test_load_reports_a_broken_file_instead_of_failing(self):
-        self.write(".config/omarchy/marcho78.titlebars.json", "{nope")
+        self.write(".config/omarchy/geeosp.titlebars.json", "{nope")
         result = self.run_cli("load")
         self.assertEqual(result.returncode, 0)
         loaded = json.loads(result.stdout)
@@ -98,7 +98,7 @@ class HyprState(Base):
             raise AssertionError("titlebars hypr must not run programs: %r" % (args,))
 
         cli.run = no_processes
-        self.write(".config/omarchy/marcho78.titlebars.json", '{"buttons": "left", "style": "evil", "barHeight": 999}')
+        self.write(".config/omarchy/geeosp.titlebars.json", '{"buttons": "left", "style": "evil", "barHeight": 999}')
         import contextlib
         import io
         out = io.StringIO()
@@ -119,7 +119,7 @@ class HyprState(Base):
 class Refusals(Base):
     def test_symlinked_settings_file(self):
         self.write("secret", "SECRET")
-        os.symlink(self.path("secret"), self.path(".config/omarchy/marcho78.titlebars.json"))
+        os.symlink(self.path("secret"), self.path(".config/omarchy/geeosp.titlebars.json"))
         self.assertNotEqual(self.run_cli("get").returncode, 0)
         self.assertNotEqual(self.run_cli("set", "buttons", "left").returncode, 0)
         self.assertEqual(self.read("secret"), "SECRET")
@@ -135,15 +135,15 @@ class Refusals(Base):
         self.assertNotEqual(self.run_cli("set", "buttons", "left").returncode, 0)
 
     def test_oversized_and_hardlinked_files(self):
-        self.write(".config/omarchy/marcho78.titlebars.json", " " * 70000)
+        self.write(".config/omarchy/geeosp.titlebars.json", " " * 70000)
         self.assertNotEqual(self.run_cli("get").returncode, 0)
-        os.unlink(self.path(".config/omarchy/marcho78.titlebars.json"))
+        os.unlink(self.path(".config/omarchy/geeosp.titlebars.json"))
         self.write("other.json", "{}")
-        os.link(self.path("other.json"), self.path(".config/omarchy/marcho78.titlebars.json"))
+        os.link(self.path("other.json"), self.path(".config/omarchy/geeosp.titlebars.json"))
         self.assertNotEqual(self.run_cli("get").returncode, 0)
 
     def test_fifo_does_not_hang(self):
-        os.mkfifo(self.path(".config/omarchy/marcho78.titlebars.json"))
+        os.mkfifo(self.path(".config/omarchy/geeosp.titlebars.json"))
         self.assertNotEqual(self.run_cli("get").returncode, 0)
 
 
@@ -217,7 +217,7 @@ class Setup(Base):
 
     def test_purge_removes_only_files_it_created(self):
         cli = self.cli
-        build = ".local/share/marcho78.titlebars"
+        build = ".local/share/geeosp.titlebars"
         os.makedirs(self.path(build), mode=0o700)
         for name in cli.BUILD_FILES:
             self.write(f"{build}/{name}", "x")
@@ -307,7 +307,7 @@ class OfferSetup(Base):
             answers.append(out.getvalue().strip())
         self.assertEqual(answers, ["yes", "no"])
         cli.status = lambda: {"built": True, "hooked": True}
-        os.unlink(self.path(".local/state/marcho78.titlebars/setup-offered"))
+        os.unlink(self.path(".local/state/geeosp.titlebars/setup-offered"))
         out = io.StringIO()
         with contextlib.redirect_stdout(out):
             cli.cmd_offer_setup([])

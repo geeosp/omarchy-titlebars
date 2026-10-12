@@ -1,8 +1,8 @@
--- Title Bars: the Hyprland half of the marcho78.titlebars Omarchy plugin.
+-- Title Bars: the Hyprland half of the geeosp.titlebars Omarchy plugin.
 --
 -- Draws window title bars with minimize / maximize / close buttons through the
 -- hyprbars plugin (https://github.com/hyprwm/hyprland-plugins). The look comes
--- from this plugin's defaults.json with ~/.config/omarchy/marcho78.titlebars.json on
+-- from this plugin's defaults.json with ~/.config/omarchy/geeosp.titlebars.json on
 -- top; the Title Bars panel and the `titlebars` command edit that file and
 -- reload Hyprland.
 --
@@ -12,7 +12,7 @@
 local plugin_dir = ...
 local paths = require("default.hypr.paths")
 
-local hyprbars_path = paths.home .. "/.local/share/marcho78.titlebars/hyprbars.so"
+local hyprbars_path = paths.home .. "/.local/share/geeosp.titlebars/hyprbars.so"
 local max_state_bytes = 256 * 1024
 local minimized_workspace = "special:minimized"
 
@@ -416,7 +416,7 @@ if settings.settingsButton and state.gear == true then
     fg_color = colors.titleInactive,
     size = math.floor(settings.buttonSize * 1.5 + 0.5),
     icon = "󰒓",
-    action = "/usr/bin/omarchy-shell shell summon marcho78.titlebars '{}'",
+    action = "/usr/bin/omarchy-shell shell summon geeosp.titlebars '{}'",
     opposite = true,
     icon_always = true,
   })

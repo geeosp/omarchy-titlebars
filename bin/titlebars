@@ -48,7 +48,7 @@ import subprocess
 import sys
 import time
 
-PLUGIN_ID = "marcho78.titlebars"
+PLUGIN_ID = "geeosp.titlebars"
 PLUGIN_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 HOME = os.environ.get("HOME", "")
 UID = os.getuid()
@@ -76,7 +76,7 @@ BIN_DIR = (".local", "bin")
 HYPR_CONFIG = "hyprland.lua"
 HYPR_STUB = "titlebars.lua"
 # Marks the require line setup adds, and heads the files it writes.
-OWNER_MARK = "Managed by marcho78.titlebars"
+OWNER_MARK = "Managed by geeosp.titlebars"
 REQUIRE_LINE = 'require("hypr.titlebars") -- ' + OWNER_MARK
 # Written by the first release (a48d33e), before the mark existed.
 LEGACY_REQUIRE_LINE = 'require("hypr.titlebars")'

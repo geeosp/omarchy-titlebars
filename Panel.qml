@@ -8,9 +8,9 @@ import "Styles.js" as Styles
 
 // Title Bars settings: restyle the window title bars with a live preview.
 // Open it from Omarchy menu > Style > Title Bars, `titlebars settings`, or
-//   omarchy-shell shell summon marcho78.titlebars '{}'
+//   omarchy-shell shell summon geeosp.titlebars '{}'
 //
-// Changes are written to ~/.config/omarchy/marcho78.titlebars.json (only the values
+// Changes are written to ~/.config/omarchy/geeosp.titlebars.json (only the values
 // that differ from defaults.json) and Hyprland reloads to apply them.
 Item {
   id: root
@@ -20,7 +20,7 @@ Item {
   property var shell: null
   property bool closingFromHost: false
 
-  readonly property string pluginId: "marcho78.titlebars"
+  readonly property string pluginId: "geeosp.titlebars"
   readonly property string pluginDir: Qt.resolvedUrl(".").toString().replace(/^file:\/\//, "").replace(/\/$/, "")
   readonly property string home: Quickshell.env("HOME")
   // Every file under $HOME is read and written by bin/titlebars, which checks
@@ -575,7 +575,7 @@ Item {
                 textFormat: Text.PlainText
                 text: root.settingUp ? root.setupMessage
                   : root.problem !== "" ? root.problem
-                  : root.unsupported ? "This Title Bars release doesn't support your Hyprland version yet. Update the plugin with omarchy plugin update marcho78.titlebars; your previous build keeps working until you log out."
+                  : root.unsupported ? "This Title Bars release doesn't support your Hyprland version yet. Update the plugin with omarchy plugin update geeosp.titlebars; your previous build keeps working until you log out."
                   : "Title bars aren't set up yet. Setup builds the hyprbars plugin for your Hyprland version and adds it to your Hyprland config."
                 color: Color.foreground
                 font.family: Style.font.family

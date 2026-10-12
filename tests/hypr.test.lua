@@ -213,7 +213,7 @@ test("settings gear sits opposite the buttons when the patch is built", function
   eq(gear.bg_color, "rgba(00000000)", "no circle")
   eq(gear.fg_color, "rgb(565f89)", "dim glyph")
   eq(gear.size, 18, "gear size")
-  assert(gear.action:find("summon marcho78.titlebars", 1, true), "opens the panel")
+  assert(gear.action:find("summon geeosp.titlebars", 1, true), "opens the panel")
 
   seen = run('{ "settingsButton": false }', { features = "opposite\n" })
   eq(#seen.buttons, 3, "gear turned off")

@@ -46,7 +46,7 @@ live preview changes everything without touching config files.
 ## Install
 
 ```bash
-omarchy plugin add https://github.com/marcho78/omarchy-titlebars.git --enable
+omarchy plugin add https://github.com/geeosp/titlebars.git --enable
 ```
 
 The Title Bars panel opens once after install. Click **Set up title bars**:
@@ -60,7 +60,7 @@ headers (part of the `hyprland` package), all standard on Omarchy. Setup can
 also run from a terminal, and is safe to repeat:
 
 ```bash
-~/.config/omarchy/plugins/marcho78.titlebars/bin/titlebars setup
+~/.config/omarchy/plugins/geeosp.titlebars/bin/titlebars setup
 ```
 
 ## Customize
@@ -102,7 +102,7 @@ titlebars reset
 | `settingsButton` | `true` | `on`, `off` (a gear on the far side of the bar that opens these settings) |
 | `enabled` | `true` | `on`, `off` |
 
-Your choices are saved in `~/.config/omarchy/marcho78.titlebars.json`, which only keeps
+Your choices are saved in `~/.config/omarchy/geeosp.titlebars.json`, which only keeps
 what differs from `defaults.json`. Custom colors apply while `followTheme` is off;
 picking a color in the panel turns it off for you.
 
@@ -123,14 +123,14 @@ login.
 
 When Hyprland moves to a release this version of Title Bars doesn't list yet,
 nothing is built. The previous build keeps working until you log out, and the
-panel asks you to update the plugin (`omarchy plugin update marcho78.titlebars`).
+panel asks you to update the plugin (`omarchy plugin update geeosp.titlebars`).
 
 ## Uninstall
 
 ```bash
 titlebars uninstall            # unhook from Hyprland, keep your settings
 titlebars uninstall --purge    # also delete your settings and the hyprbars build
-omarchy plugin remove marcho78.titlebars
+omarchy plugin remove geeosp.titlebars
 ```
 
 ## Security
@@ -167,11 +167,11 @@ a byte cap, so no file can stall the compositor. Title Bars writes only:
 
 | Path | What |
 |---|---|
-| `~/.config/omarchy/marcho78.titlebars.json` | your settings, only what differs from the defaults |
-| `~/.local/share/marcho78.titlebars/` | `hyprbars.so`, `features`, `built-for-hyprland` |
-| `~/.local/state/marcho78.titlebars/setup-offered` | marks that the panel has offered setup once |
+| `~/.config/omarchy/geeosp.titlebars.json` | your settings, only what differs from the defaults |
+| `~/.local/share/geeosp.titlebars/` | `hyprbars.so`, `features`, `built-for-hyprland` |
+| `~/.local/state/geeosp.titlebars/setup-offered` | marks that the panel has offered setup once |
 | `~/.config/hypr/titlebars.lua` | a loader for `hypr/titlebars.lua` |
-| `~/.config/hypr/hyprland.lua` | one `require("hypr.titlebars") -- Managed by marcho78.titlebars` line (with a backup that never replaces an existing file) |
+| `~/.config/hypr/hyprland.lua` | one `require("hypr.titlebars") -- Managed by geeosp.titlebars` line (with a backup that never replaces an existing file) |
 | `~/.config/omarchy/hooks/post-update.d/titlebars.hook` | the rebuild hook |
 | `~/.config/omarchy/extensions/omarchy-menu.jsonc` | the Style › Title Bars entry |
 | `~/.local/bin/titlebars` | a link to `bin/titlebars` |
@@ -184,7 +184,7 @@ place by uninstall. In `hyprland.lua` and the menu file only the exact lines
 Title Bars adds are touched, so your own `require("hypr.titlebars")` or
 `style.titlebars` entry is left alone. The link in `~/.local/bin` is replaced
 or removed only while it points at this plugin. `uninstall --purge` deletes
-the settings file and the named files in the two `marcho78.titlebars`
+the settings file and the named files in the two `geeosp.titlebars`
 directories above, then removes those directories only if they are empty;
 nothing is deleted recursively. The temporary build directory is removed only
 if it is still the one the build created.
@@ -195,7 +195,7 @@ are stored or used. Every text element in the panel is `Text.PlainText`, and
 window classes and font names shown in it are filtered to plain characters.
 
 **Limits.** Anything running as your user can replace
-`~/.local/share/marcho78.titlebars/hyprbars.so` or edit your Hyprland config directly;
+`~/.local/share/geeosp.titlebars/hyprbars.so` or edit your Hyprland config directly;
 Title Bars doesn't try to defend against that.
 
 ## Development

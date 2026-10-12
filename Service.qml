@@ -8,7 +8,7 @@ Item {
 
   property var shell: null
 
-  readonly property string pluginId: "marcho78.titlebars"
+  readonly property string pluginId: "geeosp.titlebars"
   readonly property string pluginDir: Qt.resolvedUrl(".").toString().replace(/^file:\/\//, "").replace(/\/$/, "")
 
   Bounded {
