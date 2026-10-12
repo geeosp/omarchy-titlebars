@@ -38,6 +38,8 @@ const cases = [
   { style: "nerd", order: "mac" },
   { showMaximize: false },
   { showClose: false, showMinimize: false, style: "symbols" },
+  { showFloat: true },
+  { showFloat: true, order: "mac", style: "nerd" },
   { followTheme: false, colors: { close: "#ff0000", bar: "blue", icon: "#11223380" } },
   { followTheme: false, style: "mono", colors: { titleInactive: "#abcdef" } },
   { style: "fancy", buttonSize: 99 },

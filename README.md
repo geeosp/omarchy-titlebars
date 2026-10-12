@@ -82,6 +82,7 @@ titlebars reset
 | `buttons` | `right` | `right`, `left` |
 | `order` | `standard` | `standard` (− □ ×), `mac` (× − □) |
 | `showMinimize`, `showMaximize`, `showClose` | `true` | `on`, `off` |
+| `showFloat` | `false` | `on`, `off` (a button that floats the window out of the tiling grid) |
 | `buttonSize` | `12` | 8–24 |
 | `buttonSpacing` | `8` | 0–24 |
 | `title` | `true` | `on`, `off` |
@@ -95,7 +96,7 @@ titlebars reset
 | `borderAroundBar` | `true` | `on`, `off` |
 | `doubleClick` | `maximize` | `maximize`, `minimize`, `none` |
 | `followTheme` | `true` | `on`, `off` |
-| `colors.bar`, `.title`, `.titleInactive`, `.close`, `.maximize`, `.minimize`, `.icon`, `.inactiveButton` | theme colors | a `colors.toml` name (`red`, `accent`, ...) or `#rrggbb` / `#rrggbbaa` |
+| `colors.bar`, `.title`, `.titleInactive`, `.close`, `.maximize`, `.minimize`, `.float`, `.icon`, `.inactiveButton` | theme colors | a `colors.toml` name (`red`, `accent`, ...) or `#rrggbb` / `#rrggbbaa` |
 | `noBarApps` | none | window classes, comma separated |
 | `shortcuts` | `true` | `on`, `off` (Super+M / Super+Alt+M) |
 | `settingsButton` | `true` | `on`, `off` (a gear on the far side of the bar that opens these settings) |

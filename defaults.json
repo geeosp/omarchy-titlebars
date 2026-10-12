@@ -6,6 +6,7 @@
   "order": "standard",
   "showMinimize": true,
   "showMaximize": true,
+  "showFloat": false,
   "showClose": true,
   "buttonSize": 12,
   "buttonSpacing": 8,
@@ -30,6 +31,7 @@
     "close": "red",
     "maximize": "green",
     "minimize": "yellow",
+    "float": "accent",
     "icon": "darker_background",
     "inactiveButton": "muted"
   },

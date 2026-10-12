@@ -6,16 +6,16 @@
 // fill: "role" colors each button, "mono" uses one neutral color, "none" shows
 // only the glyph. scale enlarges glyph-only buttons so the glyphs stay legible.
 var STYLES = {
-  dots: { fill: "role", hover: true, scale: 1, glyphs: { minimize: "−", maximize: "+", close: "×" } },
-  labeled: { fill: "role", hover: false, scale: 1, glyphs: { minimize: "−", maximize: "+", close: "×" } },
-  mono: { fill: "mono", hover: true, scale: 1, glyphs: { minimize: "−", maximize: "+", close: "×" } },
-  symbols: { fill: "none", hover: false, scale: 1.5, glyphs: { minimize: "−", maximize: "□", close: "×" } },
-  nerd: { fill: "none", hover: false, scale: 1.5, glyphs: { minimize: "󰖰", maximize: "󰖯", close: "󰅖" } }
+  dots: { fill: "role", hover: true, scale: 1, glyphs: { minimize: "−", maximize: "+", float: "❐", close: "×" } },
+  labeled: { fill: "role", hover: false, scale: 1, glyphs: { minimize: "−", maximize: "+", float: "❐", close: "×" } },
+  mono: { fill: "mono", hover: true, scale: 1, glyphs: { minimize: "−", maximize: "+", float: "❐", close: "×" } },
+  symbols: { fill: "none", hover: false, scale: 1.5, glyphs: { minimize: "−", maximize: "□", float: "❐", close: "×" } },
+  nerd: { fill: "none", hover: false, scale: 1.5, glyphs: { minimize: "󰖰", maximize: "󰖯", float: "󰖲", close: "󰅖" } }
 }
 
 var ORDERS = {
-  standard: ["minimize", "maximize", "close"],
-  mac: ["close", "minimize", "maximize"]
+  standard: ["minimize", "maximize", "float", "close"],
+  mac: ["close", "minimize", "maximize", "float"]
 }
 
 var TRANSPARENT = "#00000000"
@@ -94,7 +94,7 @@ function colorsFor(settings, defaults, palette) {
 // The visible buttons, left to right, with how each one is drawn.
 function buttons(settings, colors) {
   var style = STYLES[settings.style] || STYLES.dots
-  var shown = { minimize: settings.showMinimize, maximize: settings.showMaximize, close: settings.showClose }
+  var shown = { minimize: settings.showMinimize, maximize: settings.showMaximize, float: settings.showFloat, close: settings.showClose }
   var size = Math.floor(settings.buttonSize * style.scale + 0.5)
 
   return (ORDERS[settings.order] || ORDERS.standard).filter(function(name) {

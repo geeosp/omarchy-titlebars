@@ -279,6 +279,7 @@ Item {
     { role: "close", label: "Close" },
     { role: "maximize", label: "Maximize" },
     { role: "minimize", label: "Minimize" },
+    { role: "float", label: "Float" },
     { role: "icon", label: "Button symbols" },
     { role: "inactiveButton", label: "Inactive buttons" }
   ]
@@ -638,6 +639,7 @@ Item {
                 model: [
                   { key: "showMinimize", label: "Minimize" },
                   { key: "showMaximize", label: "Maximize" },
+                  { key: "showFloat", label: "Float" },
                   { key: "showClose", label: "Close" }
                 ]
                 Row {

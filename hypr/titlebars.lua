@@ -236,6 +236,7 @@ local palette = {
   foreground = "a9b1d6",
   dark_foreground = "565f89",
   muted = "414868",
+  accent = "7aa2f7",
   red = "f7768e",
   yellow = "e0af68",
   green = "9ece6a",
@@ -336,6 +337,7 @@ end
 local actions = {
   minimize = dispatch('hl.dsp.window.move({ workspace = "' .. minimized_workspace .. '", follow = false })'),
   maximize = dispatch('hl.dsp.window.fullscreen({ mode = "maximized" })'),
+  float = dispatch('hl.dsp.window.float({ action = "toggle" })'),
   close = dispatch("hl.dsp.window.close()"),
 }
 
@@ -343,11 +345,11 @@ local actions = {
 -- fill: "role" colors each button, "mono" uses one neutral color, "none" shows
 -- only the glyph. scale enlarges glyph-only buttons so the glyphs stay legible.
 local styles = {
-  dots = { fill = "role", hover = true, glyphs = { minimize = "−", maximize = "+", close = "×" } },
-  labeled = { fill = "role", hover = false, glyphs = { minimize = "−", maximize = "+", close = "×" } },
-  mono = { fill = "mono", hover = true, glyphs = { minimize = "−", maximize = "+", close = "×" } },
-  symbols = { fill = "none", hover = false, scale = 1.5, glyphs = { minimize = "−", maximize = "□", close = "×" } },
-  nerd = { fill = "none", hover = false, scale = 1.5, glyphs = { minimize = "󰖰", maximize = "󰖯", close = "󰅖" } },
+  dots = { fill = "role", hover = true, glyphs = { minimize = "−", maximize = "+", float = "❐", close = "×" } },
+  labeled = { fill = "role", hover = false, glyphs = { minimize = "−", maximize = "+", float = "❐", close = "×" } },
+  mono = { fill = "mono", hover = true, glyphs = { minimize = "−", maximize = "+", float = "❐", close = "×" } },
+  symbols = { fill = "none", hover = false, scale = 1.5, glyphs = { minimize = "−", maximize = "□", float = "❐", close = "×" } },
+  nerd = { fill = "none", hover = false, scale = 1.5, glyphs = { minimize = "󰖰", maximize = "󰖯", float = "󰖲", close = "󰅖" } },
 }
 local style = styles[settings.style]
 local transparent = "rgba(00000000)"
@@ -387,8 +389,8 @@ hl.config({
   },
 })
 
-local order = settings.order == "mac" and { "close", "minimize", "maximize" } or { "minimize", "maximize", "close" }
-local shown = { minimize = settings.showMinimize, maximize = settings.showMaximize, close = settings.showClose }
+local order = settings.order == "mac" and { "close", "minimize", "maximize", "float" } or { "minimize", "maximize", "float", "close" }
+local shown = { minimize = settings.showMinimize, maximize = settings.showMaximize, float = settings.showFloat, close = settings.showClose }
 local size = math.floor(settings.buttonSize * (style.scale or 1) + 0.5)
 
 -- hyprbars puts the first button at the bar's edge, so a right-aligned row is
